@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Juntos por el Deporte</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@700&display=swap');
+        @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&display=swap');
+        
+        body {
+            font-family: 'Playfair Display', serif;
+            margin: 0;
+            padding: 0;
+            background-image: url('juntos en el deporte.jpg');
+            background-size: cover;
+            background-position: center;
+            color: white;
+            text-align: center;
+        }
+        
+        header {
+            background-color: rgba(50, 50, 50, 0.7); /* Fondo gris transparente */
+            padding: 20px 0;
+            position: relative;
+        }
+
+        h1 {
+            font-family: 'Cinzel', serif; /* Fuente más elegante */
+            font-size: 4.5em; /* Tamaño más grande */
+            margin: 0;
+            color: #fff;
+        }
+
+        .qr-container {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            width: 100px;
+            height: 100px;
+            background-color: rgba(50, 50, 50, 0.7); /* Fondo gris para el QR */
+            padding: 10px;
+            border-radius: 5px;
+        }
+
+        section {
+            background-color: rgba(50, 50, 50, 0.7); /* Fondo grisáceo */
+            margin: 20px;
+            padding: 20px;
+            border-radius: 10px;
+            max-width: 75%; /* Reducido al 75% del ancho de la pantalla */
+            width: 75%; /* Asegurando que ocupe solo el 75% */
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        h2 {
+            font-size: 2em;
+            margin-bottom: 10px;
+            font-weight: bold;
+            color: white; /* Frase en blanco */
+            background-color: rgba(50, 50, 50, 0.7); /* Fondo gris oscuro */
+            padding: 10px;
+            border-radius: 5px;
+        }
+
+        .actividad {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin: 15px 0;
+            padding: 10px;
+            background-color: rgba(50, 50, 50, 0.8); /* Fondo gris oscuro */
+            border-radius: 5px;
+            color: white; /* Letras en blanco */
+        }
+
+        .actividad img {
+            width: 80px;
+            height: 80px;
+            border-radius: 5px;
+            margin-right: 15px;
+        }
+
+        .actividad div {
+            flex-grow: 1;
+            text-align: left;
+        }
+
+        .actividad h3 {
+            margin: 0;
+            font-size: 1.5em;
+        }
+
+        .actividad p {
+            font-size: 1.1em;
+        }
+
+        .detalle {
+            display: none;
+            font-size: 1em;
+            text-align: left;
+            margin-top: 10px;
+            overflow: hidden;
+            max-height: 0; /* Comienza colapsado */
+            transition: max-height 0.3s ease-out; /* Efecto de deslizamiento */
+        }
+
+        .detalle.show {
+            display: block;
+            max-height: 200px; /* Altura máxima del contenido expandido */
+        }
+
+        .boton {
+            background-color: #808080; /* Gris */
+            color: white;
+            border: none;
+            padding: 5px 10px;
+            cursor: pointer;
+            font-weight: bold;
+            border-radius: 5px;
+            align-self: center;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Juntos por el Deporte</h1>
+        <!-- Contenedor para el código QR -->
+        <div class="qr-container">
+            <img src="c:\Users\patirex1990\Downloads\imagen_2025-02-15_143755585.svg" alt="Código QR" style="width: 100%; height: 100%; object-fit: cover;">
+        </div>
+    </header>
+
+    <section>
+        <h2><strong>Actividades Disponibles</strong></h2>
+        
+        <div class="actividad">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/1/1f/Wheelchair_basketball.jpg" alt="Baloncesto en silla de ruedas">
+            <div>
+                <h3>Baloncesto en silla de ruedas</h3>
+                <p>Disfruta de una tarde de baloncesto adaptado.</p>
+                <button class="boton" onclick="toggleDetalle('detalleBaloncestoSilla')">Más info</button>
+                <p id="detalleBaloncestoSilla" class="detalle">El baloncesto en silla de ruedas es una disciplina emocionante y desafiante. A través de este deporte, los participantes tienen la oportunidad de mejorar sus habilidades técnicas, desarrollar su trabajo en equipo y participar en competiciones de alto nivel con entrenadores especializados en baloncesto adaptado.</p>
+            </div>
+        </div>
+
+        <div class="actividad">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/d/d9/Blind_football_game.jpg" alt="Fútbol para ciegos">
+            <div>
+                <h3>Fútbol para ciegos</h3>
+                <p>Mejora tu técnica en la cancha con fútbol adaptado.</p>
+                <button class="boton" onclick="toggleDetalle('detalleFutbolCiegos')">Más info</button>
+                <p id="detalleFutbolCiegos" class="detalle">El fútbol para ciegos es una modalidad adaptada del fútbol tradicional. Los jugadores usan un balón sonoro que les permite orientarse en el campo. Las sesiones se enfocan en el desarrollo de habilidades tácticas, la comunicación en equipo y la participación en partidos inclusivos.</p>
+            </div>
+        </div>
+
+        <div class="actividad">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/0/06/Paralympic_Boccia_Competition.jpg" alt="Boccia">
+            <div>
+                <h3>Boccia</h3>
+                <p>Juega Boccia, un deporte adaptado para personas con discapacidad física.</p>
+                <button class="boton" onclick="toggleDetalle('detalleBoccia')">Más info</button>
+                <p id="detalleBoccia" class="detalle">El Boccia es un deporte de precisión similar a la petanca, donde los jugadores lanzan bolas hacia una meta. Ideal para personas con discapacidades físicas severas, este deporte promueve la concentración, la estrategia y la destreza. ¡Perfecto para desarrollar habilidades motoras y disfrutar de la competencia!</p>
+            </div>
+        </div>
+
+        <div class="actividad">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/5/53/Zumba_fitness.jpg" alt="Zumba inclusiva">
+            <div>
+                <h3>Zumba inclusiva</h3>
+                <p>Disfruta de una clase de Zumba para todos los niveles.</p>
+                <button class="boton" onclick="toggleDetalle('detalleZumba')">Más info</button>
+                <p id="detalleZumba" class="detalle">La Zumba inclusiva es una actividad física que combina movimientos de baile con música enérgica, diseñada para que todas las personas puedan participar, sin importar su condición física. En estas clases, se adapta la intensidad y los movimientos para que todos puedan disfrutar del ejercicio y la diversión.</p>
+            </div>
+        </div>
+
+        <div class="actividad">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/9/99/Sign_language.jpg" alt="Taller de lenguaje de signos y braille">
+            <div>
+                <h3>Taller de lenguaje de signos y braille</h3>
+                <p>Aprende y comunica con el lenguaje de signos y braille.</p>
+                <button class="boton" onclick="toggleDetalle('detalleLenguajeSignos')">Más info</button>
+                <p id="detalleLenguajeSignos" class="detalle">En este taller aprenderás los fundamentos del lenguaje de signos y el sistema Braille, permitiéndote comunicarte efectivamente con personas con discapacidades auditivas y visuales. ¡Una excelente oportunidad para promover la inclusión y mejorar tus habilidades comunicativas!</p>
+            </div>
+        </div>
+    </section>
+
+    <script>
+        function toggleDetalle(id) {
+            var elemento = document.getElementById(id);
+            elemento.classList.toggle('show'); // Alterna la clase 'show' para el deslizamiento
+        }
+    </script>
+</body>
+</html>
